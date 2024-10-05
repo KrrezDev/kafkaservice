@@ -2,6 +2,7 @@ services:
   - type: web
     name: contact-service
     env: docker
+    dockerfilePath: ./Dockerfile
     buildCommand: ./mvnw package -DskipTests
     startCommand: java -jar target/*.jar
     envVars:
@@ -15,5 +16,5 @@ services:
         sync: false
       - key: MAIL_PASSWORD
         sync: false
-      - key: PORT
-        value: "8080"
+    healthCheckPath: /actuator/health
+    autoDeploy: false

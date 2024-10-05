@@ -3,8 +3,6 @@ services:
     name: contact-service
     env: docker
     dockerfilePath: ./Dockerfile
-    buildCommand: ./mvnw package -DskipTests
-    startCommand: java -jar target/*.jar
     envVars:
       - key: KAFKA_BOOTSTRAP_SERVERS
         value: your-kafka-servers

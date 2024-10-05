@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: contact-service
+    env: docker
+    buildCommand: ./mvnw package -DskipTests
+    startCommand: java -jar target/*.jar
+    envVars:
+      - key: KAFKA_BOOTSTRAP_SERVERS
+        value: your-kafka-servers
+      - key: MAIL_HOST
+        value: smtp.gmail.com
+      - key: MAIL_PORT
+        value: "587"
+      - key: MAIL_USERNAME
+        sync: false
+      - key: MAIL_PASSWORD
+        sync: false
+      - key: PORT
+        value: "8080"
